@@ -21,3 +21,12 @@ def smallestDifference(arrayOne, arrayTwo):
 		elif current2 < current1:
 			pointer2 += 1
 	return returnArr
+
+
+def moveElementToEnd(array, toMove):
+	currentPlace = 0
+	for i in range(len(array)):
+		if array[i] != toMove:
+			array[i], array[currentPlace] = array[currentPlace], array[i]
+			currentPlace += 1
+	return array
