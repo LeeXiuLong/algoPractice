@@ -31,4 +31,8 @@ def moveElementToEnd(array, toMove):
             currentPlace += 1
     return array
 
+def exampleFunction(argument):
+    return argument + 2
+
 # this is a comment
+#this is more stuff that i added
