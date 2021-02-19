@@ -34,5 +34,8 @@ def moveElementToEnd(array, toMove):
 def exampleFunction(argument):
     return argument + 2
 
+def reviewForSyntax(argument):
+    return argument
+
 # this is a comment
 #this is more stuff that i added
