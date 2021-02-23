@@ -43,7 +43,12 @@ def findClosestValueInBst(tree,target):
     
     return closest
 
-    
+def depthFirstSearch(self, array):
+    array.append(self.name)
+	if len(self.children) != 0:
+		for child in self.children:
+			child.depthFirstSearch(array)
+	return array
 
 
         
