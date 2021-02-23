@@ -39,3 +39,29 @@ def reviewForSyntax(argument):
 
 # this is a comment
 #this is more stuff that i added
+
+def twoNumberSum(array, targetSum):
+    hashMap = {}
+    for number in array:
+        if number in hashMap:
+            return [hashMap[number], number]
+        else:
+            hashMap[targetSum-number] = number
+    
+    return []
+
+def twoNumberSum(array,targetSum):
+    array.sort()
+    leftPointer = 0
+    rightPointer = array.length - 1
+    while leftPointer < rightPointer:
+        currentSum = array[leftPointer] + array[rightPointer]
+        if currentSum == targetSum:
+            return [array[leftPointer], array[rightPointer]]
+        elif currentSum > targetSum:
+            rightPointer -= 1
+        else:
+            leftPointer += 1
+    return []
+        
+    
