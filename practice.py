@@ -79,6 +79,25 @@ def productSum(array, multiplier = 1):
      else:
          upperBinary = binarySearch(array[midIndex+1:], target)
          return -1 if upperBinary == -1 else midIndex + 1 + upperBinary
+     
+
+def findThreeLargestNumbers(array):
+    largest = float("-inf")
+    middle = float("-inf")
+    smallest = float("-inf")
+    
+    for number in array:
+        if number >= largest:
+            smallest = middle
+            middle = largest
+            largest = number
+        elif number >= middle:
+            smallest = middle
+            middle = number
+        elif number >= smaller:
+            smallest = number
+    
+    return [smallest, middle, largest]
          
 
         
