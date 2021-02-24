@@ -59,6 +59,27 @@ def getNthFib(n):
         return getNthFib(n-1) + getNthFib(n-2)
 
 
+def productSum(array, multiplier = 1):
+    currentSum = 0
+    for item in array:
+        if isinstance(item, list):
+            currentSum += productSum(item, multiplier+1)
+        else:
+            currentSum += item
+    return currentSum * multiplier
+
+ def binarySearch(array, target):
+     midIndex = int(len(array)/2)
+     if len(array) == 0:
+         return -1
+     if array[midIndex] == target:
+         return midIndex
+     elif array[midIndex] > target:
+         return binarySearch(array[:midIndex], target)
+     else:
+         upperBinary = binarySearch(array[midIndex+1:], target)
+         return -1 if upperBinary == -1 else midIndex + 1 + upperBinary
+         
 
         
     
