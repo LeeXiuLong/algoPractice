@@ -140,6 +140,15 @@ def isPalindrome(string):
             last -= 1
             first += 1
     return True
+
+def caesarCipherEncryptor(string, key):
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    new_string = ""
+    for letter in string:
+        letter_index = alphabet.index(letter)
+        new_string += alphabet[(letter_index+key)%26]
+    return new_string
+    
             
     
     
