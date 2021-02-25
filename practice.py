@@ -129,6 +129,17 @@ def selectionSort(array):
                 lowest = j
         array[lowest], array[i] = array[i], array[lowest]
     return array
+
+def isPalindrome(string):
+    last = len(array)-1
+    first = 0
+    while first < last:
+        if string[first] != string[last]:
+            return False
+        else:
+            last -= 1
+            first += 1
+    return True
             
     
     
