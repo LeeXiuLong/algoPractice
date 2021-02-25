@@ -120,6 +120,16 @@ def insertionSort(array):
             else:
                 sorted = True
 	return array
+
+def selectionSort(array):
+    for i in range(len(array)):
+        lowest = i
+        for j in range(i+1,len(array)):
+            if array[lowest] > array[j]:
+                lowest = j
+        array[lowest], array[i] = array[i], array[lowest]
+    return array
+            
     
     
          
