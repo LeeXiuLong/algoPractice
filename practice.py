@@ -108,6 +108,20 @@ def bubbleSort(array):
                 array[i], array[i+1] = array[i+1], array[i]
                 sorted = False
     return array
+
+def insertionSort(array):
+    for i in range(1, len(array)):
+        sorted  = False
+        current = i
+        while not sorted and current > 0:
+            if array[current] < array[current-1]:
+                array[current], array[current-1] = array[current-1], array[current]
+                current -= 1
+            else:
+                sorted = True
+	return array
+    
+    
          
 
         
