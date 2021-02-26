@@ -160,6 +160,27 @@ def branchSums(root):
         return return_list
     else:
         return [root.value]
+
+[13458]
+[24569]
+
+def classPhotos(redShirtHeights, blueShirtHeights):
+    redShirtHeights.sort()
+    blueShirtHeights.sort()
+    red_shirt_greater = redShirtHeights[0] > blueShirtHeights[0]
+    for i in range(len(redShirtHeights)):
+        if redShirtHeights[i] > blueShirtHeights[i] != red_shirt_greater:
+            return False
+    return True 
+
+def minimumWaitingTime(queries):
+    	queries.sort()
+	total_sum = 0
+	current_sum = 0
+	for i in range(len(queries)-1):
+		current_sum += queries[i]
+		total_sum += current_sum
+	return total_sum
     
     
             
