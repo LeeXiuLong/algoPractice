@@ -148,6 +148,19 @@ def caesarCipherEncryptor(string, key):
         letter_index = alphabet.index(letter)
         new_string += alphabet[(letter_index+key)%26]
     return new_string
+
+def branchSums(root):
+    if root == None:
+        return []
+    if self.left or self.right:
+        new_list = branchSums(self.left) + branchSums(self.right)
+        return_list = []
+        for item in new_list:
+            return_list.append(item + root.value)
+        return return_list
+    else:
+        return [root.value]
+    
     
             
     
