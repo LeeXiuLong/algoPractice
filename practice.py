@@ -174,13 +174,23 @@ def classPhotos(redShirtHeights, blueShirtHeights):
     return True 
 
 def minimumWaitingTime(queries):
-    	queries.sort()
+    queries.sort()
 	total_sum = 0
 	current_sum = 0
 	for i in range(len(queries)-1):
 		current_sum += queries[i]
 		total_sum += current_sum
 	return total_sum
+
+def minimumWaitingOptimal(queries):
+    queries.sort()
+    total_sum = 0
+    current_length = len(queries)-1
+    for i in range(len(queries)-1):
+        total_sum += queries[i] * current_length
+        current_length -= 1
+    return total_sum
+
     
     
             
