@@ -191,6 +191,14 @@ def minimumWaitingOptimal(queries):
         current_length -= 1
     return total_sum
 
+def nodeDepths(root, depth = 0):
+    if root == None: 
+        return 0
+    if root.right or root.left:
+        return depth + nodeDepths(root.right, depth+1) + nodeDepths(root.left, depth+1)
+    else:
+        return depth
+
     
     
             
