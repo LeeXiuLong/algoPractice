@@ -221,6 +221,21 @@ def classPhotos(redShirtHeights, blueShirtHeights):
             return False
     return True
 
+#In the beginning the current Change that you're keeping track of should be zero
+#after sorting the array if the current element of the array is greater than the current Change+1
+# you cannot make currentChange + 1
+# this makes sense as in order to make the currentChange + 1 you would need sometihng equal to that amount or less
+#in order to make all the values in between. 
+def nonConstructibleChange(coins):
+    coins.sort()
+    currentChange = 0
+    for item in coins:
+        if item > currentChange + 1:
+            return currentChange + 1
+        else:
+            currentChange += item
+    return currentChange + 1
+
 
     
     
