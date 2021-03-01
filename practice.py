@@ -236,6 +236,44 @@ def nonConstructibleChange(coins):
             currentChange += item
     return currentChange + 1
 
+# This is an input class. Do not edit.
+class LinkedList:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+
+def removeDuplicatesFromLinkedList(linkedList):
+    currentNode = linkedList
+    prevNode = None
+    while currentNode != None:
+        if prevNode:
+            if currentNode.value == prevNode.value:
+                prevNode.next = currentNode.next
+            else:
+                prevNode = currentNode
+        else:
+            prevNode = currentNode
+        currentNode = currentNode.next
+    return linkedList
+
+
+def runLengthEncoding(string):
+    currentLetter = string[0]
+    currentCount = 0
+    newString = ""
+    for i in range(len(string)):
+        if string[i] == currentLetter and currentCount < 9:
+            currentCount += 1
+        else:
+            newString += str(currentCount) + currentLetter
+            currentLetter = string[i]
+            currentCount = 1
+        if i == len(string)-1:
+            newString += str(currentCount) + currentLetter
+    return newString
+
+
 
     
     
