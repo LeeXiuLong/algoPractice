@@ -199,6 +199,17 @@ def nodeDepths(root, depth = 0):
     else:
         return depth
 
+
+
+def insertionSort(array):
+    for i in range(1, len(array)):
+        current = i
+        while array[current] < array[current-1] and current > 0:
+            array[current], array[current-1] = array[current-1], array[current]
+            current -= 1
+    return array
+
+
     
     
             
