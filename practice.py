@@ -200,7 +200,7 @@ def nodeDepths(root, depth = 0):
         return depth
 
 
-
+#second attempt
 def insertionSort(array):
     for i in range(1, len(array)):
         current = i
@@ -208,6 +208,18 @@ def insertionSort(array):
             array[current], array[current-1] = array[current-1], array[current]
             current -= 1
     return array
+
+#2nd attempt
+def classPhotos(redShirtHeights, blueShirtHeights):
+    redShirtHeights.sort()
+    blueShirtHeights.sort()
+    difference = redShirtHeights[0] > blueShirtHeights[0]
+    for i in range(len(redShirtHeights)):
+        currentRed = redShirtHeights[i]
+        currentBlue = blueShirtHeights[i]
+        if (currentRed > currentBlue) != difference or currentRed == currentBlue:
+            return False
+    return True
 
 
     
