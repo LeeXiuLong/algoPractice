@@ -199,6 +199,82 @@ def nodeDepths(root, depth = 0):
     else:
         return depth
 
+
+#second attempt
+def insertionSort(array):
+    for i in range(1, len(array)):
+        current = i
+        while array[current] < array[current-1] and current > 0:
+            array[current], array[current-1] = array[current-1], array[current]
+            current -= 1
+    return array
+
+#2nd attempt
+def classPhotos(redShirtHeights, blueShirtHeights):
+    redShirtHeights.sort()
+    blueShirtHeights.sort()
+    difference = redShirtHeights[0] > blueShirtHeights[0]
+    for i in range(len(redShirtHeights)):
+        currentRed = redShirtHeights[i]
+        currentBlue = blueShirtHeights[i]
+        if (currentRed > currentBlue) != difference or currentRed == currentBlue:
+            return False
+    return True
+
+#In the beginning the current Change that you're keeping track of should be zero
+#after sorting the array if the current element of the array is greater than the current Change+1
+# you cannot make currentChange + 1
+# this makes sense as in order to make the currentChange + 1 you would need sometihng equal to that amount or less
+#in order to make all the values in between. 
+def nonConstructibleChange(coins):
+    coins.sort()
+    currentChange = 0
+    for item in coins:
+        if item > currentChange + 1:
+            return currentChange + 1
+        else:
+            currentChange += item
+    return currentChange + 1
+
+# This is an input class. Do not edit.
+class LinkedList:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+
+def removeDuplicatesFromLinkedList(linkedList):
+    currentNode = linkedList
+    prevNode = None
+    while currentNode != None:
+        if prevNode:
+            if currentNode.value == prevNode.value:
+                prevNode.next = currentNode.next
+            else:
+                prevNode = currentNode
+        else:
+            prevNode = currentNode
+        currentNode = currentNode.next
+    return linkedList
+
+
+def runLengthEncoding(string):
+    currentLetter = string[0]
+    currentCount = 0
+    newString = ""
+    for i in range(len(string)):
+        if string[i] == currentLetter and currentCount < 9:
+            currentCount += 1
+        else:
+            newString += str(currentCount) + currentLetter
+            currentLetter = string[i]
+            currentCount = 1
+        if i == len(string)-1:
+            newString += str(currentCount) + currentLetter
+    return newString
+
+
+
     
     This is a demo task.
 
