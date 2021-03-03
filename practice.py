@@ -344,22 +344,13 @@ def tournamentWinner(competitions, results):
 	return currentBest
         
 def isValidSubsequence(array, sequence):
-    newDict = {}
-    for item in sequence:
-        if item not in newDict:
-            newDict[item] = 0
-        newDict[item] += 1
-    
-    for item in array:
-        if item not in newDict or newDict[item] <= 0:
-            continue
-        else:
-            newDict[item] -= 1
-    
-    for value in newDict.values():
-        if value != 0:
-            return False
-    return True
+	if len(sequence) == 0:
+    		return True
+	else:
+		for i in range(len(array)):
+			if array[i] == sequence[0]:
+				return isValidSubsequence(array[i+1:], sequence[1:])
+	return False
         
         
         
