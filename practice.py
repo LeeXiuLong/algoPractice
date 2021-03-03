@@ -216,8 +216,24 @@ def nodeDepths(root, depth = 0):
 #N is an integer within the range [1..100,000]; each element of array A is an integer within the range [−1,000,000..1,000,000].
             
     
-    
-         
+
+def generateDocument(characters, document):
+    newHash = {}
+    for item in characters:
+        if item in newHash:
+            newHash[item] += 1
+        else:
+            newHash[item] = 1
+    for item in document:
+        if item in newHash:
+            if newHash[item] > 0:
+                newHash[item] -= 1
+            else:
+                return False
+        else:
+            return False
+	return True
+        
 
         
     
