@@ -327,9 +327,39 @@ def sortedSquaredArray(array):
             returnArray.push(firstNumber)
             first += 1
     return returnArray
+
+def tournamentWinner(competitions, results):
+    	currentBest = ""
+	teamScores = {"": 0}
+
+	for i in range(len(competitions)):
+		home = competitions[i][0]
+		away = competitions[i][1]
+		winner = home if results[i] == 1 else away
+		if winner not in teamScores:
+			teamScores[winner] = 0
+		teamScores[winner] += 3
+		if teamScores[winner] > teamScores[currentBest]:
+			currentBest = winner
+	return currentBest
         
-        
-            
+def isValidSubsequence(array, sequence):
+    newDict = {}
+    for item in sequence:
+        if item not in newDict:
+            newDict[item] = 0
+        newDict[item] += 1
+    
+    for item in array:
+        if item not in newDict or newDict[item] <= 0:
+            continue
+        else:
+            newDict[item] -= 1
+    
+    for value in newDict.values():
+        if value != 0:
+            return False
+    return True
         
         
         
