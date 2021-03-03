@@ -309,6 +309,29 @@ def generateDocument(characters, document):
         else:
             return False
 	return True
+
+
+def sortedSquaredArray(array):
+    returnArray = []
+    first = 0
+    last = len(array)-1
+    
+    while first < last:
+        firstNumber = array[first] * array[first]
+        lastNumber = array[last] * array[last]
+        
+        if firstNumber < lastNumber:
+            returnArray.push(lastNumber)
+            last -= 1
+        else:
+            returnArray.push(firstNumber)
+            first += 1
+    return returnArray
+        
+        
+            
+        
+        
         
 
         
