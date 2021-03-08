@@ -351,8 +351,8 @@ def isValidSubsequence(array, sequence):
 			if array[i] == sequence[0]:
 				return isValidSubsequence(array[i+1:], sequence[1:])
 	return False
-        
-        
+
+#practiced ruby models and migrations
         
 
         
