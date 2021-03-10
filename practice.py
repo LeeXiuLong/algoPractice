@@ -362,6 +362,16 @@ def minimumWaitingTime2(array):
         currentSum += array[i]
         total += currentSum
     return total
+
+def nonConstructibleChange(coins):
+    currentSum = 0
+    coins.sort()
+    for coin in coins:
+        if coin > currentSum + 1:
+            return currentSum + 1
+        else:
+            currentSum += coin
+    return currentSum + 1
         
 
         
