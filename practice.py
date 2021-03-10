@@ -353,6 +353,15 @@ def isValidSubsequence(array, sequence):
 	return False
 
 #practiced ruby models and migrations
+#practicing this solution again
+def minimumWaitingTime2(array):
+    array.sort()
+    total = 0
+    currentSum = 0
+    for i in range(len(array)-1):
+        currentSum += array[i]
+        total += currentSum
+    return total
         
 
         
