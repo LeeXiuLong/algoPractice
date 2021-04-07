@@ -421,3 +421,11 @@ def findClosestValueInBst(tree, target, closest=float("inf")):
         
     # if our tree is done then return our closest
     return newClosest if nextTree == None else findClosestValueInBst(nextTree, target, newClosest)
+
+
+def depthFirstSearch(self, array):
+    array.append(self.name)
+    for child in self.children:
+        child.depthFirstSearch(array)
+    return array
+    
