@@ -5,10 +5,11 @@ def twoNumberSum(array, targetSum):
             return [hashMap[number], number]
         else:
             hashMap[targetSum-number] = number
-    
+
     return []
 
-def twoNumberSum(array,targetSum):
+
+def twoNumberSum(array, targetSum):
     array.sort()
     leftPointer = 0
     rightPointer = array.length - 1
@@ -23,25 +24,26 @@ def twoNumberSum(array,targetSum):
     return []
 
 
-def findClosestValueInBst(tree,target):
+def findClosestValueInBst(tree, target):
     closest = tree.value
     currentBranch = tree
-    
+
     while currentBranch != None:
         currentClosestDiff = abs(target-closest)
         currentDiff = abs(currentBranch.value - target)
-        
+
         if currentClosestDiff > currentDiff:
             closest = currentBranch.value
-            
+
         if currentBranch.value == target:
             return target
         elif currentBranch.value > target:
             currentBranch = currentBranch.left
         else:
             currentBranch = currentBranch.right
-    
+
     return closest
+
 
 def depthFirstSearch(self, array):
     array.append(self.name)
@@ -50,16 +52,17 @@ def depthFirstSearch(self, array):
 			child.depthFirstSearch(array)
 	return array
 
+
 def getNthFib(n):
     if n == 1:
         return 0
-    if n == 2: 
+    if n == 2:
         return 1
     else:
         return getNthFib(n-1) + getNthFib(n-2)
 
 
-def productSum(array, multiplier = 1):
+def productSum(array, multiplier=1):
     currentSum = 0
     for item in array:
         if isinstance(item, list):
@@ -200,7 +203,7 @@ def nodeDepths(root, depth = 0):
         return depth
 
 
-#second attempt
+# second attempt
 def insertionSort(array):
     for i in range(1, len(array)):
         current = i
@@ -209,7 +212,7 @@ def insertionSort(array):
             current -= 1
     return array
 
-#2nd attempt
+# 2nd attempt
 def classPhotos(redShirtHeights, blueShirtHeights):
     redShirtHeights.sort()
     blueShirtHeights.sort()
@@ -221,11 +224,11 @@ def classPhotos(redShirtHeights, blueShirtHeights):
             return False
     return True
 
-#In the beginning the current Change that you're keeping track of should be zero
-#after sorting the array if the current element of the array is greater than the current Change+1
+# In the beginning the current Change that you're keeping track of should be zero
+# after sorting the array if the current element of the array is greater than the current Change+1
 # you cannot make currentChange + 1
 # this makes sense as in order to make the currentChange + 1 you would need sometihng equal to that amount or less
-#in order to make all the values in between. 
+# in order to make all the values in between. 
 def nonConstructibleChange(coins):
     coins.sort()
     currentChange = 0
@@ -278,18 +281,18 @@ def runLengthEncoding(string):
     
     This is a demo task.
 
-#Write a function:
+# Write a function:
 
-#def solution(A)that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
-#For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
+# def solution(A)that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
+# For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
 
-#Given A = [1, 2, 3], the function should return 4.
+# Given A = [1, 2, 3], the function should return 4.
 
-#Given A = [−1, −3], the function should return 1.
+# Given A = [−1, −3], the function should return 1.
 
-#Write an efficient algorithm for the following assumptions:
+# Write an efficient algorithm for the following assumptions:
 
-#N is an integer within the range [1..100,000]; each element of array A is an integer within the range [−1,000,000..1,000,000].
+# N is an integer within the range [1..100,000]; each element of array A is an integer within the range [−1,000,000..1,000,000].
             
     
 
@@ -352,8 +355,8 @@ def isValidSubsequence(array, sequence):
 				return isValidSubsequence(array[i+1:], sequence[1:])
 	return False
 
-#practiced ruby models and migrations
-#practicing this solution again
+# practiced ruby models and migrations
+# practicing this solution again
 def minimumWaitingTime2(array):
     array.sort()
     total = 0
@@ -375,4 +378,46 @@ def nonConstructibleChange(coins):
         
 
         
+    def twoNumberSum(array, targetSum):
+        dictionary = {}
+        
+        for item in array:
+            if item in dictionary:
+                return [item, dictionary[item]]
+            else:
+                dictionary[targetSum - item] = item
+                
+        return []
+
+
+# define our closest variable
+# make a recursive function with our closest as a param
+# check if our current head is equal to target
+# return head if equal to target
+# check if our current head is closer to target than current closest
+# update closest
+# check if our current head is greater or lesser than our target
+# move our tree to the node that corresponds to greater or lesser
+
+def findClosestValueInBst(tree, target, closest=float("inf")):
     
+    # making our variables
+    currentClosestDistance = abs(closest-target)
+    newClosest = closest
+    
+    # check to see if current value equals target
+    if tree.value == target:
+        return tree.value 
+
+    # check to see if we need to update our closest
+    if abs(target - tree.value) < currentClosestDistance:
+        newClosest = tree.value
+    
+    # determine which tree to navigate to
+    if tree.value > target:
+        nextTree = tree.left
+    else:
+        nextTree = tree.right
+        
+    # if our tree is done then return our closest
+    return newClosest if nextTree == None else findClosestValueInBst(nextTree, target, newClosest)
